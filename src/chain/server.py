@@ -15,6 +15,8 @@ blockchain = Blockchain()
 blockchain.create_genesis_block()
 
 peers = {}
+
+
 @app.route('/new_transaction', methods=['POST'])
 def new_transaction():
     tx_data = request.get_json()
