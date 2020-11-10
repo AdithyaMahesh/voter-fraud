@@ -4,6 +4,7 @@ import json
 
 import requests
 from flask import render_template, redirect, request
+from sql_con import verify
 
 
 app = Flask(__name__)
@@ -44,6 +45,15 @@ def index():
                            readable_time=timestamp_to_string)
 
 
+@app.route('/error', methods=['GET'])
+def index3():
+    return render_template('error.html',
+                           title='Voter Dashboard',
+                           votes=[],
+                           node_address=CONNECTED_NODE_ADDRESS,
+                           readable_time=timestamp_to_string)
+
+
 @app.route('/admin', methods=['GET'])
 def index2():
     fetch_posts()
@@ -61,20 +71,23 @@ def submit_textarea():
     """
     post_content = request.form["content"]
     author = request.form["author"]
+    password = request.form["password"]
+    dob = request.form["dob"]
+    response = verify(author, password, dob)
+    if response:
+        post_object = {
+            'author': author,
+            'content': post_content,
+        }
 
-    post_object = {
-        'author': author,
-        'content': post_content,
-    }
+        # Submit a transaction
+        new_tx_address = "{}/new_transaction".format(CONNECTED_NODE_ADDRESS)
 
-    # Submit a transaction
-    new_tx_address = "{}/new_transaction".format(CONNECTED_NODE_ADDRESS)
+        requests.post(new_tx_address, json=post_object, headers={'Content-type': 'application/json'})
 
-    requests.post(new_tx_address,
-                  json=post_object,
-                  headers={'Content-type': 'application/json'})
-
-    return redirect('/')
+        return redirect('/')   
+    else:
+        return redirect('/error')
 
 
 def timestamp_to_string(epoch_time):
