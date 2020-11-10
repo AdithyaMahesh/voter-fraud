@@ -9,7 +9,7 @@
     {% for vote in votes %}
     <div class="post_box">
 	   <div class="post_box-header">
-	      <div style="background: rgb(0, 97, 146) none repeat scroll 0% 0%; box-shadow: rgb(0, 97, 146) 0px 0px 0px 2px;" class="post_box-avatar">{{post.author[0]}}</div>
+	      <div style="background: rgb(0, 97, 146) none repeat scroll 0% 0%; box-shadow: rgb(0, 97, 146) 0px 0px 0px 2px;" class="post_box-avatar">{{vote.author[0]}}</div>
 	      <div class="name-header">{{vote.author}}</div>
 	      <div class="post_box-subtitle"> Voted at <i>{{readable_time(vote.timestamp)}}</i></div>
 	   </div>
