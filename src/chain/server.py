@@ -3,6 +3,7 @@ from chain import Blockchain
 from flask import Flask, request
 import time
 import json
+import requests
 # initializing flask
 
 app = Flask(__name__)
