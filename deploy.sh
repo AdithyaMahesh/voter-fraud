@@ -1,2 +1,4 @@
-cd src/chain && python3 server.py; ls
-cd src/frontend && python3 app.py
+chmod +x deploy_blockchain.sh
+chmod +x deploy_frontend.sh
+sh ./deploy_blockchain.sh &  PIDIOS=$!
+sh ./deploy_frontend.sh &  PIDMIX=$!
