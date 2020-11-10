@@ -38,7 +38,7 @@ def fetch_posts():
 def index():
     fetch_posts()
     return render_template('index.html',
-                           title='YourNet: Decentralized '
+                           title='VoterFraud '
                                  'content sharing',
                            posts=posts,
                            node_address=CONNECTED_NODE_ADDRESS,
