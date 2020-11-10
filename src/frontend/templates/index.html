@@ -7,8 +7,11 @@
 	<center>
 	<form action="/submit" id="textform" method="post">
 	    <textarea name="content" rows="1" cols="20" placeholder="Candidate"></textarea>
-	    <br>
-	    <input type="text" name="author" placeholder="Your Name">
+		<br>
+	    <input type="text" name="content" placeholder="Your Candidate">
+		<input type="text" name="author" placeholder="Your Name">
+	    <input type="text" name="dob" placeholder="Your Date of Birth as YYYY-MM-DD">
+	    <input type="text" name="password" placeholder="Your Password">
 		<input type="submit" value="Vote">
 	</form>
 	<a href="{{node_address}}/mine" target="_blank"><button>Confirm Vote</button></a>
