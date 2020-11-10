@@ -2,21 +2,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-	<br>
-
-	<center>
-	<form action="/submit" id="textform" method="post">
-	    <textarea name="content" rows="4" cols="50" placeholder="Candidate"></textarea>
-	    <br>
-	    <input type="text" name="author" placeholder="Your Name">
-	    <input type="submit" value="Vote">
-	</form>
-	</center>
-
-	<br>
-
-	<a href="{{node_address}}/mine" target="_blank"><button>Mine</button></a>
-	<a href="/"><button>Sync</button></a>
+	<center><a href="/admin"><button>Sync</button></a></center>
 
 	<div style="margin: 20px;">
 
