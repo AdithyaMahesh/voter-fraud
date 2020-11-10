@@ -8,8 +8,6 @@ from flask import render_template, redirect, request
 
 app = Flask(__name__)
 
-app.run(port=5000)
-
 CONNECTED_NODE_ADDRESS = "http://127.0.0.1:6789"
 
 posts = []
@@ -36,7 +34,7 @@ def fetch_posts():
                        reverse=True)
 
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def index():
     fetch_posts()
     return render_template('index.html',
@@ -72,3 +70,7 @@ def submit_textarea():
 
 def timestamp_to_string(epoch_time):
     return datetime.datetime.fromtimestamp(epoch_time).strftime('%H:%M')
+
+
+
+app.run()
