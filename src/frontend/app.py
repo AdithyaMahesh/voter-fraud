@@ -74,6 +74,7 @@ def submit_textarea():
     password = request.form["password"]
     dob = request.form["dob"]
     response = verify(author, password, dob)
+    print("Got: ", post_content, author, password, dob, response)
     if response:
         post_object = {
             'author': author,
