@@ -6,17 +6,17 @@
 
 	<center>
 	<form action="/submit" id="textform" method="post">
-	    <textarea name="content" rows="4" cols="50" placeholder="Just write whatever you want to..."></textarea>
+	    <textarea name="content" rows="4" cols="50" placeholder="Candidate"></textarea>
 	    <br>
-	    <input type="text" name="author" placeholder="Your name">
-	    <input type="submit" value="Post">
+	    <input type="text" name="author" placeholder="Your Name">
+	    <input type="submit" value="Vote">
 	</form>
 	</center>
 
 	<br>
 
-	<a href="{{node_address}}/mine" target="_blank"><button>Request to mine</button></a>
-	<a href="/"><button>Resync</button></a>
+	<a href="{{node_address}}/mine" target="_blank"><button>Mine</button></a>
+	<a href="/"><button>Sync</button></a>
 
 	<div style="margin: 20px;">
 
@@ -25,7 +25,7 @@
 	   <div class="post_box-header">
 	      <div style="background: rgb(0, 97, 146) none repeat scroll 0% 0%; box-shadow: rgb(0, 97, 146) 0px 0px 0px 2px;" class="post_box-avatar">{{post.author[0]}}</div>
 	      <div class="name-header">{{post.author}}</div>
-	      <div class="post_box-subtitle"> Posted at <i>{{readable_time(post.timestamp)}}</i></div>
+	      <div class="post_box-subtitle"> Voted at <i>{{readable_time(post.timestamp)}}</i></div>
 	   </div>
 	   <div>
 	      <div class="post_box-body">
