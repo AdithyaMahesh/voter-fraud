@@ -1,4 +1,7 @@
 from block import Block
+import time
+
+
 class Blockchain:
     # difficulty of our PoW algorithm
     difficulty = 2
