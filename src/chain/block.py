@@ -1,5 +1,5 @@
 from hashlib import sha256
-
+import json
 
 class Block:
     def __init__(self, index, transactions, timestamp, previous_hash, nonce=0):
