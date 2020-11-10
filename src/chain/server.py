@@ -190,3 +190,6 @@ def announce_new_block(block):
         requests.post(url,
                       data=json.dumps(block.__dict__, sort_keys=True),
                       headers=headers)
+
+
+app.run(port=6789)
