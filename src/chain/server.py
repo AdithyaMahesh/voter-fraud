@@ -152,7 +152,7 @@ def verify_and_add_block():
     return "Block added to the chain", 201
 
 
-# endpoint to query unconfirmed transactions
+# get all unconfirmed transactions
 @app.route('/pending_tx')
 def get_pending_tx():
     return json.dumps(blockchain.unconfirmed_transactions)
@@ -184,15 +184,9 @@ def consensus():
 
 
 def announce_new_block(block):
-    """
-    A function to announce to the network once a block has been mined.
-    Other blocks can simply verify the proof of work and add it to their
-    respective chains.
-    """
     for peer in peers:
         url = "{}add_block".format(peer)
         headers = {'Content-Type': "application/json"}
         requests.post(url,
                       data=json.dumps(block.__dict__, sort_keys=True),
                       headers=headers)
-                      
