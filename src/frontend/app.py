@@ -39,7 +39,7 @@ def index():
     fetch_posts()
     return render_template('index.html',
                            title='Voter Dashboard',
-                           posts=posts,
+                           posts=[],
                            node_address=CONNECTED_NODE_ADDRESS,
                            readable_time=timestamp_to_string)
 
@@ -47,8 +47,8 @@ def index():
 @app.route('/admin', methods=['GET'])
 def index2():
     fetch_posts()
-    return render_template('index.html',
-                           title='BlockChain Admin View',
+    return render_template('index2.html',
+                           title='Blockchain Votes',
                            posts=posts,
                            node_address=CONNECTED_NODE_ADDRESS,
                            readable_time=timestamp_to_string)
