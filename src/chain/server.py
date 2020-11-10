@@ -1,4 +1,5 @@
 # imports
+from block import Block
 from chain import Blockchain
 from flask import Flask, request
 import time
@@ -20,16 +21,16 @@ peers = {}
 
 @app.route('/new_transaction', methods=['POST'])
 def new_transaction():
-    tx_data = request.get_json()
+    transaction_data = request.get_json()
     required_fields = ["author", "content"]
 
     for field in required_fields:
-        if not tx_data.get(field):
+        if not transaction_data.get(field):
             return "Invalid transaction data", 404
 
-    tx_data["timestamp"] = time.time()
+    transaction_data["timestamp"] = time.time()
 
-    blockchain.add_new_transaction(tx_data)
+    blockchain.add_new_transaction(transaction_data)
 
     return "Success", 201
 
@@ -194,3 +195,4 @@ def announce_new_block(block):
         requests.post(url,
                       data=json.dumps(block.__dict__, sort_keys=True),
                       headers=headers)
+                      
