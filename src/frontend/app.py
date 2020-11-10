@@ -39,7 +39,7 @@ def index():
     fetch_posts()
     return render_template('index.html',
                            title='Voter Dashboard',
-                           posts=[],
+                           votes=[],
                            node_address=CONNECTED_NODE_ADDRESS,
                            readable_time=timestamp_to_string)
 
@@ -49,7 +49,7 @@ def index2():
     fetch_posts()
     return render_template('index2.html',
                            title='Blockchain Votes',
-                           posts=posts,
+                           votes=posts,
                            node_address=CONNECTED_NODE_ADDRESS,
                            readable_time=timestamp_to_string)
 
