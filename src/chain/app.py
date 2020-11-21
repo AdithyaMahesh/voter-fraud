@@ -16,7 +16,7 @@ blockchain = Blockchain()
 # creating the genesis (starting) block
 blockchain.create_genesis_block()
 
-peers = {}
+peers = set()
 
 
 @app.route('/new_transaction', methods=['POST'])

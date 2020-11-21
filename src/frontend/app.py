@@ -1,7 +1,7 @@
 from flask import Flask
 import datetime
 import json
-
+from hashlib import sha256
 import requests
 from flask import render_template, redirect, request
 from sql_con import verify
@@ -9,7 +9,7 @@ from sql_con import verify
 
 app = Flask(__name__)
 
-CONNECTED_NODE_ADDRESS = "http://127.0.0.1:6789"
+CONNECTED_NODE_ADDRESS = "http://127.0.0.1:8000"
 
 posts = []
 
@@ -54,7 +54,7 @@ def index3():
                            readable_time=timestamp_to_string)
 
 
-@app.route('/admin', methods=['GET'])
+@app.route('/votes', methods=['GET'])
 def index2():
     fetch_posts()
     return render_template('index2.html',
@@ -62,6 +62,12 @@ def index2():
                            votes=posts,
                            node_address=CONNECTED_NODE_ADDRESS,
                            readable_time=timestamp_to_string)
+
+
+@app.route('/changeNode', methods=['GET'])
+def changeNode():
+    CONNECTED_NODE_ADDRESS = "http://127.0.0.1:9000"
+    return f'changed node to pper node {CONNECTED_NODE_ADDRESS}'
 
 
 @app.route('/submit', methods=['POST'])
@@ -75,10 +81,11 @@ def submit_textarea():
     dob = request.form["dob"]
     response = verify(author, password, dob)
     print("Got: ", post_content, author, password, dob, response)
+
     if response:
         post_object = {
             'author': author,
-            'content': post_content,
+            'content': sha256(post_content.encode()).hexdigest(),
         }
 
         # Submit a transaction
