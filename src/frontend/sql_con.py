@@ -1,4 +1,3 @@
-
 def verify(username, password, dob):
     """Perform SQL verification here
 

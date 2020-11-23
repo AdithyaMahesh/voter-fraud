@@ -160,8 +160,7 @@ def get_pending_tx():
 
 def consensus():
     """
-    Our naive consnsus algorithm. If a longer valid chain is
-    found, our chain is replaced with it.
+    The Nakamoto Consensus Algorithm
     """
     global blockchain
 

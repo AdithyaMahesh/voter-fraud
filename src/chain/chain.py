@@ -3,7 +3,6 @@ import time
 
 
 class Blockchain:
-    # difficulty of our PoW algorithm
     difficulty = 2
 
     def __init__(self):
@@ -11,11 +10,6 @@ class Blockchain:
         self.chain = []
 
     def create_genesis_block(self):
-        """
-        A function to generate genesis block and appends it to
-        the chain. The block has index 0, previous_hash as 0, and
-        a valid hash.
-        """
         genesis_block = Block(0, [], 0, "0")
         genesis_block.hash = genesis_block.compute_hash()
         self.chain.append(genesis_block)
