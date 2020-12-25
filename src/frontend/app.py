@@ -83,6 +83,15 @@ def register():
 	return render_template('register.html', msg = msg)
 
 
+@app.route("/home") 
+def home(): 
+	if 'loggedin' in session: 
+		return render_template("home.html") 
+	return redirect(url_for('login'))
+
+    
+
+
 CONNECTED_NODE_ADDRESS = "http://127.0.0.1:8000"
 
 
