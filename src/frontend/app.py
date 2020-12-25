@@ -1,10 +1,13 @@
 from flask import Flask
+from flask import Flask, render_template, request, redirect, url_for, session 
 import datetime
 import json
 from hashlib import sha256
 import requests
-from flask import render_template, redirect, request
 from sql_con import verify
+from flask_mysqldb import MySQL
+import MySQLdb.cursors 
+import re 
 
 
 app = Flask(__name__)
