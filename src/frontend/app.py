@@ -89,7 +89,14 @@ def home():
 		return render_template("home.html") 
 	return redirect(url_for('login'))
 
-    
+@app.route("/display") 
+def display(): 
+	if 'loggedin' in session: 
+		cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor) 
+		cursor.execute('SELECT * FROM accounts WHERE id = % s', (session['id'], )) 
+		account = cursor.fetchone()	 
+		return render_template("display.html", account = account) 
+	return redirect(url_for('login'))    
 
 
 CONNECTED_NODE_ADDRESS = "http://127.0.0.1:8000"
