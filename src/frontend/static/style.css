@@ -19,20 +19,20 @@
 .logintop{ 
 	height: 60px; 
 	width: 400px; 
-	background-color: #009933; 
+	background-color: #005499; 
 	color: #ffffff; 
 } 
 
 .registertop{ 
 	height: 60px; 
 	width: 400px; 
-	background-color: #009933; 
+	background-color: #005499; 
 	color: #ffffff; 
 } 
 
 .textbox{ 
 	padding: 10px 40px; 
-	background-color: #009933; 
+	background-color: #005499; 
 	border-radius: 10px; 
 } 
 
@@ -45,7 +45,7 @@
 
 .btn { 
 	padding: 10px 40px; 
-	background-color: #009933; 
+	background-color: #005499; 
 	color: #FFFFFF; 
 	font-style: oblique; 
 	font-weight: bold; 
@@ -53,7 +53,7 @@
 } 
 
 .worddark{ 
-	color: #009933; 
+	color: #005499; 
 	font-style: oblique; 
 	font-weight: bold; 
 } 
@@ -81,7 +81,7 @@
 .one .two{ 
 	width: 225px; 
 	height: 100%; 
-	background: #009933; 
+	background: #005499; 
 	padding: 30px 0px; 
 	position: fixed; 
 } 
