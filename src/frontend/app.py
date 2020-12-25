@@ -160,7 +160,7 @@ def fetch_posts():
                        reverse=True)
 
 
-@app.route('/', methods=['GET'])
+@app.route('/index', methods=['GET'])
 def index():
     fetch_posts()
     return render_template('index.html',
