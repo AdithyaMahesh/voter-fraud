@@ -98,10 +98,24 @@ def display():
 		return render_template("display.html", account = account) 
 	return redirect(url_for('login'))
 
-@app.route("/update", methods =['GET', 'POST']) 
 def update(): 
 	msg = '' 
-            
+	if 'loggedin' in session: 
+		if request.method == 'POST' and 'username' in request.form and 'password' in request.form and 'email' in request.form and 'address' in request.form and 'city' in request.form and 'country' in request.form and 'postalcode' in request.form and 'organisation' in request.form: 
+			username = request.form['username'] 
+			password = request.form['password'] 
+			email = request.form['email'] 
+			organisation = request.form['organisation'] 
+			address = request.form['address'] 
+			city = request.form['city'] 
+			state = request.form['state'] 
+			country = request.form['country']	 
+			postalcode = request.form['postalcode'] 
+			cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor) 
+			cursor.execute('SELECT * FROM accounts WHERE username = % s', (username, )) 
+			account = cursor.fetchone() 
+
+
 
 
 CONNECTED_NODE_ADDRESS = "http://127.0.0.1:8000"
