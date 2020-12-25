@@ -23,6 +23,9 @@ app.config['MYSQL_DB'] = 'sampledb'
 
 mysql = MySQL(app)
 
+@app.route('/') 
+@app.route('/login', methods =['GET', 'POST'])
+
 CONNECTED_NODE_ADDRESS = "http://127.0.0.1:8000"
 
 
