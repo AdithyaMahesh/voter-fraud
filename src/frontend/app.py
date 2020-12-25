@@ -51,6 +51,10 @@ def logout():
     session.pop('username', None) 
     return redirect(url_for('login'))
 
+
+@app.route('/register', methods =['GET', 'POST']) 
+def register(): 
+	msg = ''
     
 
 CONNECTED_NODE_ADDRESS = "http://127.0.0.1:8000"
