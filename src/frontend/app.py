@@ -225,3 +225,7 @@ def submit_textarea():
 
 def timestamp_to_string(epoch_time):
     return datetime.datetime.fromtimestamp(epoch_time).strftime('%H:%M')
+
+
+if __name__ == "__main__": 
+	app.run(host ="localhost", port = int("5000"))
