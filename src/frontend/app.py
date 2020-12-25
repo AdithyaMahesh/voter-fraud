@@ -96,7 +96,12 @@ def display():
 		cursor.execute('SELECT * FROM accounts WHERE id = % s', (session['id'], )) 
 		account = cursor.fetchone()	 
 		return render_template("display.html", account = account) 
-	return redirect(url_for('login'))    
+	return redirect(url_for('login'))
+
+@app.route("/update", methods =['GET', 'POST']) 
+def update(): 
+	msg = '' 
+            
 
 
 CONNECTED_NODE_ADDRESS = "http://127.0.0.1:8000"
